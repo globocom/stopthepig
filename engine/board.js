@@ -1,18 +1,29 @@
 class Board {
   constructor() {
-    this.width = 11
-    this.height = 11
-    this.maxMoves = this.width * this.height
+    this.columns = 11
+    this.rows = 11
+    this.maxMoves = this.rows * this.columns
     this.matrix = this.buildMatrix()
+  }
+
+  move(player, row, column) {
+    this.matrix[player.row][player.column] = null
+    this.matrix[row][column] = player.char
+    player.setPosition(row, column)
+  }
+
+  push(player, row, column) {
+    this.matrix[row][column] = player.char
+    player.setPosition(row, column)
   }
 
   buildMatrix() {
     const matrix = []
 
-    for (let i = 0; i < this.width; i++) { // columns
-      matrix[i] = []
-      for (let j = 0; j < this.height; j++) { // rows
-        matrix[i][j] = null
+    for (let x = 0; x < this.rows; x++) {
+      matrix[x] = []
+      for (let y = 0; y < this.columns; y++) {
+        matrix[x][y] = null
       }
     }
 
@@ -20,14 +31,15 @@ class Board {
   }
 
   draw() {
-    for (const row = 0; row < this.height; row++) {
-      for (const column = 0; column < this.width; column++) {
+    for (let row = 0; row < this.rows; row++) {
+      for (let column = 0; column < this.columns; column++) {
         const cell = this.matrix[column][row] || ' '
         process.stdout.write("| " + cell + " ")
       }
       process.stdout.write("\n")
     }
   }
+
 }
 
 export default Board
