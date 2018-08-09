@@ -34,12 +34,11 @@ class Board {
     for (let row = 0; row < this.rows; row++) {
       for (let column = 0; column < this.columns; column++) {
         const cell = this.matrix[column][row] || ' '
-        process.stdout.write("| " + cell + " ")
+        process.stdout.write(`| ${cell} `)
       }
-      process.stdout.write("\n")
+      process.stdout.write('\n')
     }
   }
-
 }
 
 export default Board

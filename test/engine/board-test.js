@@ -1,7 +1,8 @@
 import assert from 'assert'
-import { Player, Pig } from './../../engine/player'
-import Board from './../../engine/board'
-import { describe } from 'mocha';
+import { describe } from 'mocha'
+
+import { Pig } from '../../engine/player'
+import Board from '../../engine/board'
 
 describe('Board', () => {
   describe('initialize', () => {
@@ -22,14 +23,14 @@ describe('Board', () => {
     it('with maxMoves of 121', () => {
       assert.equal(board.maxMoves, 121)
     })
+
     describe('player position', () => {
-      let board
       beforeEach(() => {
         board = new Board()
       })
 
       it('pushes a player', () => {
-        var pig = new Pig()
+        const pig = new Pig()
         board.push(pig, 4, 4)
         assert.equal(pig.row, 4)
         assert.equal(pig.column, 4)
@@ -37,7 +38,7 @@ describe('Board', () => {
       })
 
       it('moves a player', () => {
-        var pig = new Pig()
+        const pig = new Pig()
         board.push(pig, 4, 4)
         board.move(pig, 5, 6)
         assert.equal(pig.row, 5)
@@ -45,7 +46,6 @@ describe('Board', () => {
         assert.equal(board.matrix[4][4], null)
         assert.equal(board.matrix[pig.row][pig.column], pig.char)
       })
-
     })
   })
 })

@@ -1,7 +1,7 @@
 import assert from 'assert'
 
-import Game from './../../engine/game'
-import Board from './../../engine/board'
+import Game from '../../engine/game'
+import Board from '../../engine/board'
 
 describe('Game', () => {
   describe('initialize', () => {

@@ -1,4 +1,4 @@
-class Player {
+export class Player {
   constructor(char) {
     this.char = char
     this.row = null
@@ -11,15 +11,15 @@ class Player {
   }
 }
 
-class Pig extends Player {
+export class Pig extends Player {
   constructor() {
-    super("P")
+    super('P')
   }
 }
 
-class Farmer extends Player {
+export class Farmer extends Player {
   constructor() {
-    super("F")
+    super('F')
   }
 
   setPosition(row, column) {
@@ -27,5 +27,3 @@ class Farmer extends Player {
     this.column = column
   }
 }
-
-export {Player, Pig}
