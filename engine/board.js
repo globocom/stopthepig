@@ -39,6 +39,28 @@ class Board {
       process.stdout.write('\n')
     }
   }
+
+  getAvailablePositions() {
+    let positions = []
+    for (let row = 0; row < this.rows; row++) {
+      for (let column = 0; column < this.columns; column++) {
+        if (this.matrix[column][row] === null) {
+          positions.push({row, column})
+        }
+      }
+    }
+    return positions
+  }
+
+  isAtEdge(player) {
+    if (player.row === 0 ||
+      player.row === this.rows-1 ||
+      player.column === 0 ||
+      player.column === this.columns-1) {
+      return true
+    }
+    return false
+  }
 }
 
 export default Board
