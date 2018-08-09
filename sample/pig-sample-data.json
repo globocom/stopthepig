@@ -1,0 +1,94 @@
+{
+    "board": [
+        [null, null, null, null, "F", "F", "F", "F", "F"],
+        [null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null],
+        [null, null, null, "F",  "F",  "F",  null, null, null],
+        [null, null, null, "F",  "P",  "P", "P", "P", "P"],
+        [null, null, null, "F",  "F",  "F",  null, null, null],
+        [null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null]
+    ],
+
+    "moves": [
+        {
+            "player": "P",
+            "action": "move",
+            "x": 5,
+            "y": 5
+        },
+        {
+            "player": "F",
+            "action": "block",
+            "x": 10,
+            "y": 10
+        },
+        {
+            "player": "P",
+            "action": "move",
+            "x": 6,
+            "y": 5
+        },
+        {
+            "player": "F",
+            "action": "block",
+            "x": 10,
+            "y": 9
+        },
+        {
+            "player": "P",
+            "action": "move",
+            "x": 7,
+            "y": 5
+        },
+        {
+            "player": "F",
+            "action": "block",
+            "x": 10,
+            "y": 8
+        },
+        {
+            "player": "P",
+            "action": "move",
+            "x": 8,
+            "y": 5
+        },
+        {
+            "player": "F",
+            "action": "block",
+            "x": 10,
+            "y": 7
+        },
+        {
+            "player": "P",
+            "action": "move",
+            "x": 9,
+            "y": 5
+        },
+        {
+            "player": "F",
+            "action": "block",
+            "x": 10,
+            "y": 6
+        },
+        {
+            "player": "P",
+            "action": "finish",
+            "x": 10,
+            "y": 5
+        }
+    ],
+
+    "winner": "P",
+
+    "players": {
+        "P": {
+            "score": 5
+        },
+        "F": {
+            "score": 5
+        }
+    }
+}

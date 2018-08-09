@@ -1,0 +1,40 @@
+{
+    "board": [
+        [null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null],
+        [null, null, null, "F",  "F",  "F",  null, null, null],
+        [null, null, null, "F",  "P",  "P", null, null, null],
+        [null, null, null, "F",  "F",  "F",  null, null, null],
+        [null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null]
+    ],
+
+    "moves": [
+        {
+            "player": "P",
+            "action": "move",
+            "x": 5,
+            "y": 5
+        },
+        {
+            "player": "F",
+            "action": "block",
+            "x": 10,
+            "y": 10
+        }
+    ],
+
+    "winner": "F",
+
+    "players": {
+        "P": {
+            "score": 5
+        },
+        "F": {
+            "score": 5
+        }
+    }
+}
