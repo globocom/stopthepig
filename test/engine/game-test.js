@@ -29,4 +29,18 @@ describe('Game', () => {
       assert.equal(game.moves.length, 0)
     })
   })
+
+  describe('pig', () => {
+    let game
+    let pig
+    let farmer
+
+    beforeEach(() => {
+      game = new Game(pig, farmer)
+    })
+
+    it('should get pig possibile positions', () => {
+      assert.equal(game.moves.length, 0)
+    })
+  })
 })
