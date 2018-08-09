@@ -83,7 +83,7 @@
 
     "winner": "P",
 
-    "players": {
+    "score": {
         "P": {
             "score": 5
         },
