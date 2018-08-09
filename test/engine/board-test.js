@@ -1,9 +1,6 @@
 import assert from 'assert'
-import { Pig, Farmer } from './../../engine/player'
-import Board from './../../engine/board'
-import { describe } from 'mocha';
-
-import { Pig } from '../../engine/player'
+import { describe } from 'mocha'
+import { Pig, Farmer } from '../../engine/player'
 import Board from '../../engine/board'
 
 describe('Board', () => {
@@ -26,7 +23,6 @@ describe('Board', () => {
       assert.equal(board.maxMoves, 121)
     })
     describe('positions', () => {
-      let board
       beforeEach(() => {
         board = new Board()
       })
@@ -53,19 +49,19 @@ describe('Board', () => {
         let positions = board.getAvailablePositions()
         assert.equal(board.maxMoves, positions.length)
 
-        var pig = new Pig()
+        const pig = new Pig()
         board.push(pig, 4, 4)
         board.push(new Farmer(), 5, 6)
         board.move(pig, 10, 10)
 
         positions = board.getAvailablePositions()
 
-        assert.equal(board.maxMoves-2, positions.length)
+        assert.equal(board.maxMoves - 2, positions.length)
       })
 
       it('verifies whether a position is at edge', () => {
-        let pig = new Pig()
-        pig.setPosition(0,0)
+        const pig = new Pig()
+        pig.setPosition(0, 0)
         assert.equal(true, board.isAtEdge(pig))
 
         pig.setPosition(10, 10)
