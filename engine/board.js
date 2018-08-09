@@ -2,8 +2,13 @@ class Board {
   constructor(pig) {
     this.columns = 11
     this.rows = 11
+    this.maxMoves = this.rows * this.columns
     this.matrix = this.buildMatrix()
     this.pig = pig
+  }
+
+  move(row, column) {
+    this.matrix[row, column]
   }
 
   buildMatrix() {
