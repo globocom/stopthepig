@@ -1,11 +1,11 @@
 {
     "board": [
-        [null, null, null, null, "F", "F", "F", "F", "F"],
         [null, null, null, null, null, null, null, null, null],
         [null, null, null, null, null, null, null, null, null],
-        [null, null, null, "F",  "F",  "F",  null, null, null],
-        [null, null, null, "F",  "P",  "P", "P", "P", "P"],
-        [null, null, null, "F",  "F",  "F",  null, null, null],
+        [null, null, null, null, null, null, null, null, null],
+        [null, null, null, "F", "F", "F", null, null, null],
+        [null, null, null, "F", "P", null, null, null, null],
+        [null, null, null, "F", "F", "F", null, null, null],
         [null, null, null, null, null, null, null, null, null],
         [null, null, null, null, null, null, null, null, null],
         [null, null, null, null, null, null, null, null, null],
