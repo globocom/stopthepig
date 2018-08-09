@@ -1,14 +1,20 @@
 class Board {
-  constructor(pig) {
+  constructor() {
     this.columns = 11
     this.rows = 11
     this.maxMoves = this.rows * this.columns
     this.matrix = this.buildMatrix()
-    this.pig = pig
   }
 
-  move(row, column) {
-    this.matrix[row, column]
+  move(player, row, column) {
+    this.matrix[player.row][player.column] = null
+    this.matrix[row][column] = player.char
+    player.setPosition(row, column)
+  }
+
+  push(player, row, column) {
+    this.matrix[row][column] = player.char
+    player.setPosition(row, column)
   }
 
   buildMatrix() {
