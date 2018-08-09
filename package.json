@@ -1,0 +1,11 @@
+{
+  "name": "stopthepig",
+  "private": true,
+  "scripts": {
+    "test": "mocha -r esm ./test/**/*-test.js"
+  },
+  "devDependencies": {
+    "esm": "^3.0.74",
+    "mocha": "^5.2.0"
+  }
+}
