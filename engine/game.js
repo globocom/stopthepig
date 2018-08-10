@@ -31,8 +31,6 @@ class Game {
       )
     })
 
-    this.board.draw()
-
     for (let currentMove = 0; currentMove < this.board.maxMoves*2; currentMove++) {
       const currentPlayer = players[currentMove % 2]
 
@@ -47,7 +45,7 @@ class Game {
         currentPlayer.score++
         continue        
       }
-      
+
       let action = ""
       switch (currentPlayer) {
         case this.farmer:
@@ -69,21 +67,14 @@ class Game {
         "y": positionResult.column,
       })
 
-      // DEBUG #########################################################
-      console.log(`Move ${currentMove} - Player ${currentPlayer.char}`)
-      this.board.draw()
-      // ###############################################################
-
       winner = this.getWinner()
       if (winner !== null) {
-        console.log(`${winner.char} WON`)
         moves.push({
           "player": winner.char,
           "action": "finish",
           "row": winner.row,
           "column": winner.column,
         })
-
         break
       }
     }
@@ -97,7 +88,6 @@ class Game {
     result.score[this.pig.char] = this.pig.score
     result.score[this.farmer.char] = this.farmer.score
 
-    console.log(result)
     return result
   }
 
