@@ -1,6 +1,6 @@
 import React from 'react'
-import sampleFarmerAlgorithm from 'raw-loader!../../engine/algorithms/sample-farmer-algorithm'
-import samplePigAlgorithm from 'raw-loader!../../engine/algorithms/sample-pig-algorithm'
+import sampleFarmerAlgorithm from '!raw-loader!../../engine/algorithms/sample-farmer-algorithm'
+import samplePigAlgorithm from '!raw-loader!../../engine/algorithms/sample-pig-algorithm'
 
 import Editor from '../components/editor'
 import Board from '../components/board'

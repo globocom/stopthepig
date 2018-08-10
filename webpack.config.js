@@ -17,9 +17,6 @@ module.exports = {
         include: [
           path.join(__dirname, 'client'),
           path.join(__dirname, 'engine')
-        ],
-        exclude: [
-          path.join(__dirname, 'engine/algorithms')
         ]
       },
       {
