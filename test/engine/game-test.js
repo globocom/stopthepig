@@ -34,10 +34,6 @@ describe('Game', () => {
       assert.equal(game.farmer, farmer)
       assert.equal(game.pig, pig)
     })
-
-    it('should initialize with no moves', () => {
-      assert.equal(game.moves.length, 0)
-    })
   })
 
   describe('execute', () => {

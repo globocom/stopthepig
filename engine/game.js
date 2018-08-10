@@ -6,12 +6,13 @@ class Game {
     this.board = new Board()
     this.pig = pig
     this.farmer = farmer
-    this.moves = []
   }
 
   run() {
     const players = [this.pig, this.farmer]
     let initialState = []
+    let moves = []
+
     // set pig initial position (5:5) to board
     // to prevent farmer set a fence there
     this.board.push(this.pig, this.pig.row, this.pig.column)
@@ -61,7 +62,7 @@ class Game {
           break
       } 
 
-      this.moves.push({
+      moves.push({
         "player": currentPlayer.char,
         "action": action,
         "x": positionResult.row,
@@ -77,7 +78,7 @@ class Game {
       if (winner !== null) {
         console.log(`${winner.char} WON`)
         this.winner = winner.char
-        this.moves.push({
+        moves.push({
           "player": winner.char,
           "action": "finish",
           "row": winner.row,
