@@ -60,19 +60,19 @@ describe('Board', () => {
       it('verifies whether a position is at edge', () => {
         const pig = new Pig()
         pig.setPosition(0, 0)
-        assert.equal(true, board.isAtEdge(pig))
+        assert.equal(true, board.isAtEdge(pig.row, pig.column))
 
         pig.setPosition(10, 10)
-        assert.equal(true, board.isAtEdge(pig))
+        assert.equal(true, board.isAtEdge(pig.row, pig.column))
 
         pig.setPosition(5, 10)
-        assert.equal(true, board.isAtEdge(pig))
+        assert.equal(true, board.isAtEdge(pig.row, pig.column))
 
         pig.setPosition(10, 5)
-        assert.equal(true, board.isAtEdge(pig))
+        assert.equal(true, board.isAtEdge(pig.row, pig.column))
 
         pig.setPosition(5, 9)
-        assert.equal(false, board.isAtEdge(pig))
+        assert.equal(false, board.isAtEdge(pig.row, pig.column))
       })
     })
   })

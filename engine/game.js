@@ -76,7 +76,7 @@ class Game {
       this.board.draw()
       // ###############################################################
 
-      if (this.board.isAtEdge(this.pig)) {
+      if (this.board.isAtEdge(this.pig.row, this.pig.column)) {
         // upgrade player score
         currentPlayer.score += currentPlayer.score
 

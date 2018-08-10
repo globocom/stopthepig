@@ -57,11 +57,11 @@ class Board {
     return positions
   }
 
-  isAtEdge(player) {
-    if (player.row === 0
-      || player.row === this.rows - 1
-      || player.column === 0
-      || player.column === this.columns - 1) {
+  isAtEdge(row, column) {
+    if (row === 0
+      || row === this.rows - 1
+      || column === 0
+      || column === this.columns - 1) {
       return true
     }
     return false
