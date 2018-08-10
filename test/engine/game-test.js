@@ -1,19 +1,16 @@
 import assert from 'assert'
 
+import Algorithm from '../../engine/algorithm'
 import Game from '../../engine/game'
 import Board from '../../engine/board'
+
+import SampleFarmerAlgorithm from '../../engine/algorithms/sample-farmer-algorithm'
+import SamplePigAlgorithm from '../../engine/algorithms/sample-pig-algorithm'
 
 import {
   Pig,
   Farmer
 } from '../../engine/player'
-
-import {
-  Algorithm,
-  SampleFarmerAlgorithm,
-  SamplePigAlgorithm,
-} from '../../engine/algorithm'
-
 
 describe('Game', () => {
   describe('initialize', () => {

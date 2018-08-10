@@ -86,7 +86,7 @@ class Game {
     const result = {
       winner: this.winner,
       board: this.board.matrix,
-      score: {},
+      score: {}
     }
 
     result[this.pig.char] = this.pig.score

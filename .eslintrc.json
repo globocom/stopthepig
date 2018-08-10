@@ -8,6 +8,7 @@
     "node": true
   },
   "rules": {
+    "class-methods-use-this": "off",
     "comma-dangle": ["error", "never"],
     "no-console": "off",
     "no-plusplus": "off",
