@@ -11,7 +11,7 @@ class Game {
 
   run() {
     const players = [this.pig, this.farmer]
-
+    let initialState = []
     // set pig initial position (5:5) to board
     // to prevent farmer set a fence there
     this.board.push(this.pig, this.pig.row, this.pig.column)
@@ -19,7 +19,15 @@ class Game {
     // add to the board all initial fences
     // generate by the player algoritm 
     this.getInitialFencesPosition().forEach(fencePosition => {
-      this.board.push(this.farmer, fencePosition.row, fencePosition.column)
+      initialState = initialState.concat({
+        x: fencePosition.row, 
+        y: fencePosition.column
+      })
+      this.board.push(
+        this.farmer,
+        fencePosition.row,
+        fencePosition.column
+      )
     })
 
     this.board.draw()
