@@ -26,7 +26,6 @@ class Editor extends Component {
       <AceEditor
         mode="javascript"
         theme="monokai"
-        onLoad={this.onLoad}
         onChange={this.onChange}
         fontSize={14}
         showPrintMargin={false}
