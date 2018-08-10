@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "clean": "rimraf ./dist",
-    "start": "http-server ./dist",
+    "clean": "rimraf ./docs",
+    "start": "http-server ./docs",
     "test": "mocha -r esm ./test/**/*-test.js",
     "watch": "webpack-dev-server",
     "lint": "eslint ."
