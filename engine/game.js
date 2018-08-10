@@ -34,25 +34,25 @@ class Game {
         this.board.matrix,
       )
 
-      let action = ""
-      if (this.isMovementAllowed(currentPlayer, positionResult)) {
-        switch (currentPlayer) {
-          case this.farmer:
-            // push the fence position
-            this.board.push(this.farmer,positionResult.row, positionResult.column)
-            action = "block"
-            break
-          case this.pig:
-            // update current pig position
-            this.board.move(this.pig, positionResult.row, positionResult.column)
-            action = "move"
-            break
-        } 
-      } else {
+      if (!this.isMovementAllowed(currentPlayer, positionResult)) {
         currentPlayer.score++
-        action = "forbidden"
+        continue        
       }
       
+      let action = ""
+      switch (currentPlayer) {
+        case this.farmer:
+          // push the fence position
+          this.board.push(this.farmer,positionResult.row, positionResult.column)
+          action = "block"
+          break
+        case this.pig:
+          // update current pig position
+          this.board.move(this.pig, positionResult.row, positionResult.column)
+          action = "move"
+          break
+      } 
+
       this.moves.push({
         "player": currentPlayer.char,
         "action": action,
