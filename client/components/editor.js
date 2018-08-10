@@ -19,6 +19,10 @@ class Editor extends Component {
     this.setState({ source })
   }
 
+  componentDidMount() {
+    // this.editor.gotoLine(0, 0, true)
+  }
+
   render() {
     const { source } = this.state
 
@@ -26,6 +30,7 @@ class Editor extends Component {
       <AceEditor
         mode="javascript"
         theme="monokai"
+        ref={ref => this.editor = ref}
         onChange={this.onChange}
         fontSize={14}
         showPrintMargin={false}
