@@ -49,10 +49,10 @@ module.exports = {
     new MiniCssExtractPlugin(),
     new CopyWebpackPlugin(
       [
-        { from: 'unity/Build/test_communication.wasm.code.unityweb', to: path.join(__dirname, 'dist', 'test_communication.wasm.code.unityweb')},
-        { from: 'unity/Build/test_communication.data.unityweb', to: path.join(__dirname, 'dist', 'test_communication.data.unityweb')},
-        { from: 'unity/Build/test_communication.wasm.framework.unityweb', to: path.join(__dirname, 'dist', 'test_communication.wasm.framework.unityweb')}
-      ],
+        { from: 'unity/Build/test_communication.wasm.code.unityweb', to: path.join(__dirname, 'dist', 'test_communication.wasm.code.unityweb') },
+        { from: 'unity/Build/test_communication.data.unityweb', to: path.join(__dirname, 'dist', 'test_communication.data.unityweb') },
+        { from: 'unity/Build/test_communication.wasm.framework.unityweb', to: path.join(__dirname, 'dist', 'test_communication.wasm.framework.unityweb') }
+      ]
     )
   ]
 }
