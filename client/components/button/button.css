@@ -1,0 +1,11 @@
+.Button {
+  box-sizing: border-box;
+  border: 1px solid #333;
+  background-color:transparent;
+  height: 30px;
+  padding: 0 15px;
+  font-size: 1em;
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+}
