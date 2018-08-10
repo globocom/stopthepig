@@ -1,24 +1,55 @@
 export class Player {
-  constructor(char) {
+  constructor(char, algorithm) {
     this.char = char
-    this.row = null
-    this.column = null
+    this.algorithm = algorithm
+    this.score = 0
+  }
+}
+
+export class Pig extends Player {
+  constructor(algorithm) {
+    super('P', algorithm)
+    this.row = 5
+    this.column = 5
   }
 
   setPosition(row, column) {
     this.row = row
     this.column = column
   }
-}
-
-export class Pig extends Player {
-  constructor() {
-    super('P')
-    this.row = 5
-    this.column = 5
-  }
 
   getPossibleMovements(availablePositions) {
+    // BUG: we have a wird bug here
+
+    // Board Setp
+    // |   |   |   |   |   |   |   |   |   |   |
+    // |   |   |   |   |   |   |   |   |   |   |
+    // |   |   |   |   |   |   |   |   |   |   |
+    // |   |   |   |   |   |   |   |   |   |   |
+    // |   |   |   |   | F | F | F |   |   |   |
+    // |   |   |   |   | F | P | F |   |   |   |
+    // |   |   |   |   | F |   | F |   |   |   |
+    // |   |   |   |   |   |   |   |   |   |   |
+    // |   |   |   |   |   |   |   |   |   |   |
+    // |   |   |   |   |   |   |   |   |   |   |
+    // |   |   |   |   |   |   |   |   |   |   |
+
+
+    // Move 0 - Player P
+    // |   |   |   |   |   |   |   |   |   |   |
+    // |   |   |   |   |   |   |   |   |   |   |
+    // |   |   |   |   |   |   |   |   |   |   |
+    // |   |   |   |   |   |   |   |   |   |   |
+    // |   |   |   |   | F | F | F |   |   |   |
+    // |   |   |   |   | F |   | P |   |   |   |
+    // |   |   |   |   | F |   | F |   |   |   |
+    // |   |   |   |   |   |   |   |   |   |   |
+    // |   |   |   |   |   |   |   |   |   |   |
+    // |   |   |   |   |   |   |   |   |   |   |
+    // |   |   |   |   |   |   |   |   |   |   |
+
+    // FIX: why did the P go to the right?
+
     let possibleMovements = [
       { row: this.row, column: this.column - 1 },
       { row: this.row, column: this.column + 1 },
@@ -44,10 +75,33 @@ export class Pig extends Player {
 
     return possibleMovements.filter(position => _availablePositions.includes(`${position.row}:${position.column}`))
   }
+
+  play(availablePositions, board) {
+    this.score += 1
+    return this.algorithm.move(
+      this.getPossibleMovements(availablePositions),
+      board,
+    )
+  }
 }
 
 export class Farmer extends Player {
-  constructor() {
-    super('F')
+  constructor(algorithm) {
+    super('F', algorithm)
+  }
+
+  getInitialFencesPosition(availablePositions, board) {
+    return this.algorithm.setInitialFencesPosition(
+      availablePositions,
+      board,
+    )
+  }
+
+  play(availablePositions, board) {
+    this.score += 1
+    return this.algorithm.setFencesPosition(
+      availablePositions,
+      board,
+    )
   }
 }
