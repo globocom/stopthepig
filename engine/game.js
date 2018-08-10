@@ -17,15 +17,10 @@ class Game {
     this.board.push(this.pig, this.pig.row, this.pig.column)
 
     // add to the board all initial fences
-    // generate by the player algoritm
-    // TODO: limit to 5 fences
-    this.farmer.getInitialFencesPosition(
-      this.board.getAvailablePositions()
-    ).forEach(fencePosition => this.board.push(
-      this.farmer,
-      fencePosition.row,
-      fencePosition.column
-    ))
+    // generate by the player algoritm 
+    this.getInitialFencesPosition().forEach(fencePosition => {
+      this.board.push(this.farmer, fencePosition.row, fencePosition.column)
+    })
 
     this.board.draw()
 
@@ -48,10 +43,10 @@ class Game {
         )
 
         this.moves.push({
-          "player": currentPlayer.char,
-          "action": "block",
-          "row": positionResult.row,
-          "column": positionResult.column,
+          player: currentPlayer.char,
+          action: 'block',
+          row: positionResult.row,
+          column: positionResult.column
         })
       }
 
@@ -64,10 +59,10 @@ class Game {
         )
 
         this.moves.push({
-          "player": currentPlayer.char,
-          "action": "move",
-          "row": positionResult.row,
-          "column": positionResult.column,
+          player: currentPlayer.char,
+          action: 'move',
+          row: positionResult.row,
+          column: positionResult.column
         })
       }
 
@@ -83,10 +78,10 @@ class Game {
         console.log('PIG WON!')
         this.winner = currentPlayer.char
         this.moves.push({
-          "player": currentPlayer.char,
-          "action": "finish",
-          "row": positionResult.row,
-          "column": positionResult.column,
+          player: currentPlayer.char,
+          action: 'finish',
+          row: positionResult.row,
+          column: positionResult.column
         })
 
         break
@@ -99,10 +94,10 @@ class Game {
         console.log('FARMER WON!')
         this.winner = currentPlayer.char
         this.moves.push({
-          "player": currentPlayer.char,
-          "action": "finish",
-          "row": positionResult.row,
-          "column": positionResult.column,
+          player: currentPlayer.char,
+          action: 'finish',
+          row: positionResult.row,
+          column: positionResult.column
         })
 
         break
@@ -112,7 +107,7 @@ class Game {
     const result = {
       winner: this.winner,
       board: this.board.matrix,
-      score: {},
+      score: {}
     }
 
     result[this.pig.char] = this.pig.score
@@ -120,6 +115,18 @@ class Game {
 
     console.log(result)
     return result
+  }
+
+  getInitialFencesPosition() {
+    const _availablePositions = this.board.getAvailablePositions().map(
+      position => `${position.row}:${position.column}`
+    )
+
+    return this.farmer.getInitialFencesPosition(
+      this.board.getAvailablePositions()
+    ).filter(position => 
+      _availablePositions.includes(`${position.row}:${position.column}`)
+    ).slice(0,5)
   }
 }
 
