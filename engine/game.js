@@ -2,7 +2,6 @@ import Board from './board'
 
 class Game {
   constructor(pig, farmer) {
-    this.winner = null
     this.board = new Board()
     this.pig = pig
     this.farmer = farmer
@@ -12,6 +11,7 @@ class Game {
     const players = [this.pig, this.farmer]
     let initialState = []
     let moves = []
+    let winner = null
 
     // set pig initial position (5:5) to board
     // to prevent farmer set a fence there
@@ -74,10 +74,9 @@ class Game {
       this.board.draw()
       // ###############################################################
 
-      let winner = this.getWinner()
+      winner = this.getWinner()
       if (winner !== null) {
         console.log(`${winner.char} WON`)
-        this.winner = winner.char
         moves.push({
           "player": winner.char,
           "action": "finish",
@@ -90,7 +89,7 @@ class Game {
     }
 
     const result = {
-      winner: this.winner,
+      winner: winner.char,
       board: this.board.matrix,
       score: {}
     }
