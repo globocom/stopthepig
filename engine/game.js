@@ -56,8 +56,8 @@ class Game {
       this.moves.push({
         "player": currentPlayer.char,
         "action": action,
-        "row": positionResult.row,
-        "column": positionResult.column,
+        "x": positionResult.row,
+        "y": positionResult.column,
       })
 
       // DEBUG #########################################################
