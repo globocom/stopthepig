@@ -32,7 +32,7 @@ class Board {
   draw() {
     for (let row = 0; row < this.rows; row++) {
       for (let column = 0; column < this.columns; column++) {
-        const cell = this.matrix[column][row] || ' '
+        const cell = this.matrix[row][column] || ' '
         process.stdout.write(`| ${cell} `)
       }
       process.stdout.write('\n')
@@ -44,7 +44,7 @@ class Board {
     const positions = []
     for (let row = 0; row < this.rows; row++) {
       for (let column = 0; column < this.columns; column++) {
-        if (this.matrix[column][row] === null) {
+        if (this.matrix[row][column] === null) {
           positions.push({ row, column })
         }
       }

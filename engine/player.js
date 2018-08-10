@@ -19,37 +19,6 @@ export class Pig extends Player {
   }
 
   getPossibleMovements(availablePositions) {
-    // BUG: we have a wird bug here
-
-    // Board Setp
-    // |   |   |   |   |   |   |   |   |   |   |
-    // |   |   |   |   |   |   |   |   |   |   |
-    // |   |   |   |   |   |   |   |   |   |   |
-    // |   |   |   |   |   |   |   |   |   |   |
-    // |   |   |   |   | F | F | F |   |   |   |
-    // |   |   |   |   | F | P | F |   |   |   |
-    // |   |   |   |   | F |   | F |   |   |   |
-    // |   |   |   |   |   |   |   |   |   |   |
-    // |   |   |   |   |   |   |   |   |   |   |
-    // |   |   |   |   |   |   |   |   |   |   |
-    // |   |   |   |   |   |   |   |   |   |   |
-
-
-    // Move 0 - Player P
-    // |   |   |   |   |   |   |   |   |   |   |
-    // |   |   |   |   |   |   |   |   |   |   |
-    // |   |   |   |   |   |   |   |   |   |   |
-    // |   |   |   |   |   |   |   |   |   |   |
-    // |   |   |   |   | F | F | F |   |   |   |
-    // |   |   |   |   | F |   | P |   |   |   |
-    // |   |   |   |   | F |   | F |   |   |   |
-    // |   |   |   |   |   |   |   |   |   |   |
-    // |   |   |   |   |   |   |   |   |   |   |
-    // |   |   |   |   |   |   |   |   |   |   |
-    // |   |   |   |   |   |   |   |   |   |   |
-
-    // FIX: why did the P go to the right?
-
     let possibleMovements = [
       { row: this.row, column: this.column - 1 },
       { row: this.row, column: this.column + 1 },
