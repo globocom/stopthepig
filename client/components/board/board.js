@@ -3,8 +3,7 @@ import React from 'react'
 import UnityLoader from 'unity-loader'
 import UnityProgress from 'unity-progress'
 
-// require("file?name=unity.json!../../../unity/Build/test_communication.json");
-import unitBuild from '!file-loader!../../../unity/Build/test_communication.json'
+import unitBuild from '../../../unity/Build/test_communication.json'
 
 import { PIG_FLYING_IMAGE } from '../../constants'
 
@@ -25,7 +24,7 @@ console.log(unitBuild)
 const initUnit = () => {
   instance = UnityLoader.instantiate(
     'gameContainer',
-    unitBuild, {
+    `./${unitBuild}`, {
       onProgress: UnityProgress
     }
   )

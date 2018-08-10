@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const {
   NODE_ENV = 'development'
@@ -33,6 +34,11 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           'css-loader'
         ]
+      },
+      {
+        type: 'javascript/auto',
+        test: /test_communication\.json$/,
+        loader: 'file-loader'
       }
     ]
   },
@@ -40,6 +46,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Stop the Pig'
     }),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin(),
+    new CopyWebpackPlugin(
+      [
+        { from: 'unity/Build/test_communication.wasm.code.unityweb', to: path.join(__dirname, 'dist', 'test_communication.wasm.code.unityweb')},
+        { from: 'unity/Build/test_communication.data.unityweb', to: path.join(__dirname, 'dist', 'test_communication.data.unityweb')},
+        { from: 'unity/Build/test_communication.wasm.framework.unityweb', to: path.join(__dirname, 'dist', 'test_communication.wasm.framework.unityweb')}
+      ],
+    )
   ]
 }
