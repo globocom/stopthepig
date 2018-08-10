@@ -3,6 +3,18 @@ import assert from 'assert'
 import Game from '../../engine/game'
 import Board from '../../engine/board'
 
+import {
+  Pig,
+  Farmer
+} from '../../engine/player'
+
+import {
+  Algorithm,
+  SampleFarmerAlgorithm,
+  SamplePigAlgorithm,
+} from '../../engine/algorithm'
+
+
 describe('Game', () => {
   describe('initialize', () => {
     let game
@@ -21,8 +33,9 @@ describe('Game', () => {
       assert.equal(game.board.constructor, Board)
     })
 
-    it('should initialize with two valid players', () => {
-      assert.equal(game.players.length, 2)
+    it('should initialize with one farmer and one ping', () => {
+      assert.equal(game.farmer, farmer)
+      assert.equal(game.pig, pig)
     })
 
     it('should initialize with no moves', () => {
@@ -30,17 +43,22 @@ describe('Game', () => {
     })
   })
 
-  describe('pig', () => {
+  describe('execute', () => {
     let game
     let pig
     let farmer
 
     beforeEach(() => {
+      // For testing porpouse a Sample Algorithm is being used;
+      // in production the algorithm needs to be instantiated from the text content of the editor
+      pig = new Pig(new Algorithm('PingAlgorithm', SamplePigAlgorithm).instance)
+      farmer = new Farmer(new Algorithm('FarmerAlgorithm', SampleFarmerAlgorithm).instance)
       game = new Game(pig, farmer)
     })
 
-    it('should get pig possibile positions', () => {
-      assert.equal(game.moves.length, 0)
+    it('should run game', () => {
+      const result = game.run()
+      assert.equal(result.winner, 'P')
     })
   })
 })

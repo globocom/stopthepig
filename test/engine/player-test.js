@@ -21,6 +21,16 @@ describe('Player', () => {
       assert.equal(pig.column, 5)
     })
 
+    it('should initialize with not score', () => {
+      assert.equal(pig.score, 0)
+    })
+
+    it('should set a new position', () => {
+      pig.setPosition(8, 10)
+      assert.equal(pig.row, 8)
+      assert.equal(pig.column, 10)
+    })
+
     it('should return all possible movements', () => {
       const availablePositions = [
         { row: 5, column: 6 },

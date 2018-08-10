@@ -27,21 +27,21 @@ describe('Board', () => {
         board = new Board()
       })
 
-      it('pushes a player', () => {
+      it('pushes a pig', () => {
         const pig = new Pig()
-        board.push(pig, 4, 4)
-        assert.equal(pig.row, 4)
-        assert.equal(pig.column, 4)
+        board.push(pig, 5, 5)
+        assert.equal(pig.row, 5)
+        assert.equal(pig.column, 5)
         assert.equal(board.matrix[pig.row][pig.column], pig.char)
       })
 
-      it('moves a player', () => {
+      it('moves a pig', () => {
         const pig = new Pig()
-        board.push(pig, 4, 4)
+        board.push(pig, 5, 5)
         board.move(pig, 5, 6)
         assert.equal(pig.row, 5)
         assert.equal(pig.column, 6)
-        assert.equal(board.matrix[4][4], null)
+        assert.equal(board.matrix[5][5], null)
         assert.equal(board.matrix[pig.row][pig.column], pig.char)
       })
 
@@ -49,10 +49,8 @@ describe('Board', () => {
         let positions = board.getAvailablePositions()
         assert.equal(board.maxMoves, positions.length)
 
-        const pig = new Pig()
-        board.push(pig, 4, 4)
         board.push(new Farmer(), 5, 6)
-        board.move(pig, 10, 10)
+        board.move(new Pig(), 10, 10)
 
         positions = board.getAvailablePositions()
 
