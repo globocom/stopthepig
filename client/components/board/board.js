@@ -20,7 +20,7 @@ const initUnit = () => {
 
 const Board = () => (
   <div className="Board">
-    <div id="gameContainer" style={{ height: '100%' }}></div>
+    <div id="gameContainer" style={{ width: '100%', height: '100%' }} />
   </div>
 )
 
