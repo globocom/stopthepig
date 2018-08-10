@@ -14,7 +14,6 @@ class Board {
 
   push(player, row, column) {
     this.matrix[row][column] = player.char
-    player.setPosition(row, column)
   }
 
   buildMatrix() {
@@ -38,6 +37,7 @@ class Board {
       }
       process.stdout.write('\n')
     }
+    process.stdout.write('\n\n')
   }
 
   getAvailablePositions() {
