@@ -1,0 +1,71 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,600);
+.Board {
+  box-sizing: border-box;
+  padding: 10px;
+  height: 55vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+header{
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+
+header img {
+  height: 250px;
+}
+
+.Algorithms-area {
+  display: flex;
+  height: 45vh;
+}
+
+.Algorithm-title {
+  padding: 0px;
+  padding-left: 50px;
+  margin: 0px;
+}
+
+.Algorithm {
+  width: 50vw;
+}
+
+.Algorithm #brace-editor {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.Button {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  padding: 5px 20px ;
+  width: 100px;
+  font-size: 16px;
+  color: #333;
+  background-color: transparent;
+  border: 2px solid #333;
+  transition: all .1s ease-in-out;
+}
+
+.Button:hover {
+  cursor: pointer;
+  color: #fdfdfd;
+  background-color: #333;
+  border: 2px solid transparent;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #80C4E4;
+  font-family: 'Montserrat', sans-serif;
+}
+
