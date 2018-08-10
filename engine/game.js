@@ -130,8 +130,8 @@ class Game {
         break
     }
 
-    for (let i = 0; i < availablePositions.length; i++) {
-      const position = availablePositions[i];
+    for (let i = 0; i < possibleMoves.length; i++) {
+      const position = possibleMoves[i];
       if (position.row == movementPosition.row && 
           position.column == movementPosition.column) {
         return true
