@@ -1,5 +1,7 @@
 .Board {
-  height: 40vh;
+  box-sizing: border-box;
+  padding: 10px;
+  height: 55vh;
   width: 100vw;
   display: flex;
   justify-content: center;
