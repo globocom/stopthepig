@@ -80,6 +80,8 @@ class Game {
           "row": winner.row,
           "column": winner.column,
         })
+
+        break
       }
     }
 
