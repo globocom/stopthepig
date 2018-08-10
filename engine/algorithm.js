@@ -21,6 +21,7 @@ export class SampleFarmerAlgorithm {
     return [
       {row:4, column:4},
       {row:4, column:5},
+      {row:5, column:5},
       {row:4, column:6},
       {row:6, column:4},
       {row:6, column:5},
