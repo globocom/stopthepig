@@ -34,6 +34,7 @@ class Game {
         this.board.matrix,
       )
 
+      let action = ""
       if (currentPlayer === this.farmer) {
         // push the fence position
         this.board.push(
@@ -41,13 +42,7 @@ class Game {
           positionResult.row,
           positionResult.column,
         )
-
-        this.moves.push({
-          "player": currentPlayer.char,
-          "action": "block",
-          "row": positionResult.row,
-          "column": positionResult.column,
-        })
+        action = "block"
       }
 
       if (currentPlayer === this.pig) {
@@ -57,50 +52,34 @@ class Game {
           positionResult.row,
           positionResult.column,
         )
-
-        this.moves.push({
-          "player": currentPlayer.char,
-          "action": "move",
-          "row": positionResult.row,
-          "column": positionResult.column,
-        })
+        action = "move"
       }
+
+      this.moves.push({
+        "player": currentPlayer.char,
+        "action": action,
+        "row": positionResult.row,
+        "column": positionResult.column,
+      })
 
       // DEBUG #########################################################
       console.log(`Move ${currentMove} - Player ${currentPlayer.char}`)
       this.board.draw()
       // ###############################################################
 
-      if (this.board.isAtEdge(this.pig.row, this.pig.column)) {
+      let winner = this.getWinner()
+      if (winner !== null) {
         // upgrade player score
-        currentPlayer.score += currentPlayer.score
+        winner.score += winner.score
 
-        console.log('PIG WON!')
-        this.winner = currentPlayer.char
+        console.log(`${winner.char} WON`)
+        this.winner = winner.char
         this.moves.push({
-          "player": currentPlayer.char,
+          "player": winner.char,
           "action": "finish",
-          "row": positionResult.row,
-          "column": positionResult.column,
+          "row": winner.row,
+          "column": winner.column,
         })
-
-        break
-      }
-
-      if (this.board.getAvailablePositions().length === 0) {
-        // upgrade player score
-        currentPlayer.score += currentPlayer.score
-
-        console.log('FARMER WON!')
-        this.winner = currentPlayer.char
-        this.moves.push({
-          "player": currentPlayer.char,
-          "action": "finish",
-          "row": positionResult.row,
-          "column": positionResult.column,
-        })
-
-        break
       }
     }
 
@@ -127,6 +106,18 @@ class Game {
     ).filter(position => 
       _availablePositions.includes(`${position.row}:${position.column}`)
     ).slice(0,5)
+  }
+
+  getWinner() {
+    if (this.board.isAtEdge(this.pig.row, this.pig.column)) {
+      return this.pig
+    }
+
+    if (this.board.getAvailablePositions().length === 0) {
+      return this.farmer
+    }
+
+    return null
   }
 }
 
