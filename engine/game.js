@@ -86,8 +86,8 @@ class Game {
       score: {}
     }
 
-    result[this.pig.char] = this.pig.score
-    result[this.farmer.char] = this.farmer.score
+    result.score[this.pig.char] = this.pig.score
+    result.score[this.farmer.char] = this.farmer.score
 
     console.log(result)
     return result
