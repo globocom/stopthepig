@@ -35,26 +35,24 @@ class Game {
       )
 
       let action = ""
-      if (currentPlayer === this.farmer) {
-        // push the fence position
-        this.board.push(
-          this.farmer,
-          positionResult.row,
-          positionResult.column,
-        )
-        action = "block"
+      if (this.isMovementAllowed(currentPlayer, positionResult)) {
+        switch (currentPlayer) {
+          case this.farmer:
+            // push the fence position
+            this.board.push(this.farmer,positionResult.row, positionResult.column)
+            action = "block"
+            break
+          case this.pig:
+            // update current pig position
+            this.board.move(this.pig, positionResult.row, positionResult.column)
+            action = "move"
+            break
+        } 
+      } else {
+        currentPlayer.score++
+        action = "forbidden"
       }
-
-      if (currentPlayer === this.pig) {
-        // update current pig position
-        this.board.move(
-          this.pig,
-          positionResult.row,
-          positionResult.column,
-        )
-        action = "move"
-      }
-
+      
       this.moves.push({
         "player": currentPlayer.char,
         "action": action,
@@ -117,6 +115,29 @@ class Game {
     }
 
     return null
+  }
+
+  isMovementAllowed(player, movementPosition) {
+    const availablePositions = this.board.getAvailablePositions()
+    let possibleMoves = []
+
+    switch (player) {
+      case this.pig:
+        possibleMoves = this.pig.getPossibleMovements(availablePositions)
+        break
+      case this.farmer:
+        possibleMoves = availablePositions
+        break
+    }
+
+    for (let i = 0; i < availablePositions.length; i++) {
+      const position = availablePositions[i];
+      if (position.row == movementPosition.row && 
+          position.column == movementPosition.column) {
+        return true
+      }
+    }
+    return false
   }
 }
 
