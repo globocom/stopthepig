@@ -69,9 +69,6 @@ class Game {
 
       let winner = this.getWinner()
       if (winner !== null) {
-        // upgrade player score
-        winner.score += winner.score
-
         console.log(`${winner.char} WON`)
         this.winner = winner.char
         this.moves.push({
