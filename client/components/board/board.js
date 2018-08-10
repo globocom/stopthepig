@@ -5,8 +5,6 @@ import UnityProgress from 'unity-progress'
 
 import unitBuild from '../../../unity/Build/test_communication.json'
 
-import { PIG_FLYING_IMAGE } from '../../constants'
-
 let instance = null
 
 const initUnit = () => {
