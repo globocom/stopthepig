@@ -1,0 +1,19 @@
+.Algorithms-area {
+  display: flex;
+  height: 60vh;
+}
+
+.Algorithm-title {
+  padding: 0px;
+  padding-left: 50px;
+  margin: 0px;
+}
+
+.Algorithm {
+  width: 50vw;
+}
+
+.Algorithm #brace-editor {
+  height: 100% !important;
+  width: 100% !important;
+}
