@@ -24,7 +24,7 @@ class Game {
 
     this.board.draw()
 
-    for (let currentMove = 0; currentMove < this.board.maxMoves; currentMove++) {
+    for (let currentMove = 0; currentMove < this.board.maxMoves*2; currentMove++) {
       const currentPlayer = players[currentMove % 2]
 
       // let the algorithm process
