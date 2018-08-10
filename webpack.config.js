@@ -8,7 +8,15 @@ const {
 
 module.exports = {
   mode: NODE_ENV,
-  entry: './client/app',
+  entry: [
+    './unity/TemplateData/UnityProgress.js',
+    './unity/Build/UnityLoader.js',
+    './client/app'
+  ],
+  externals: {
+    'unity-loader': 'UnityLoader',
+    'unity-progress': 'UnityProgress'
+  },
   module: {
     rules: [
       {

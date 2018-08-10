@@ -1,5 +1,3 @@
-# Stop The Pig
-
 ![./docs/logo.png](./docs/logo.png)
 
 Projeto de Hackday para criação de um jogo a ser jogado através de algoritmos. Baseado no Lig4 e "jogo do gato"
