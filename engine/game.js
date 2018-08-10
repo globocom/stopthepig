@@ -43,10 +43,10 @@ class Game {
         )
 
         this.moves.push({
-          "player": currentPlayer.char,
-          "action": "block",
-          "row": positionResult.row,
-          "column": positionResult.column,
+          player: currentPlayer.char,
+          action: 'block',
+          row: positionResult.row,
+          column: positionResult.column
         })
       }
 
@@ -59,10 +59,10 @@ class Game {
         )
 
         this.moves.push({
-          "player": currentPlayer.char,
-          "action": "move",
-          "row": positionResult.row,
-          "column": positionResult.column,
+          player: currentPlayer.char,
+          action: 'move',
+          row: positionResult.row,
+          column: positionResult.column
         })
       }
 
@@ -78,10 +78,10 @@ class Game {
         console.log('PIG WON!')
         this.winner = currentPlayer.char
         this.moves.push({
-          "player": currentPlayer.char,
-          "action": "finish",
-          "row": positionResult.row,
-          "column": positionResult.column,
+          player: currentPlayer.char,
+          action: 'finish',
+          row: positionResult.row,
+          column: positionResult.column
         })
 
         break
@@ -94,10 +94,10 @@ class Game {
         console.log('FARMER WON!')
         this.winner = currentPlayer.char
         this.moves.push({
-          "player": currentPlayer.char,
-          "action": "finish",
-          "row": positionResult.row,
-          "column": positionResult.column,
+          player: currentPlayer.char,
+          action: 'finish',
+          row: positionResult.row,
+          column: positionResult.column
         })
 
         break
@@ -107,7 +107,7 @@ class Game {
     const result = {
       winner: this.winner,
       board: this.board.matrix,
-      score: {},
+      score: {}
     }
 
     result[this.pig.char] = this.pig.score
