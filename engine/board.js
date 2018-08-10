@@ -34,6 +34,11 @@ class Board {
       for (let column = 0; column < this.columns; column++) {
         const cell = this.matrix[row][column] || ' '
         process.stdout.write(`| ${cell} `)
+
+        const isLastColumn = (column == this.columns-1)
+        if (isLastColumn) {
+          process.stdout.write("|")
+        } 
       }
       process.stdout.write('\n')
     }
