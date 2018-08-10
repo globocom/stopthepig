@@ -80,14 +80,17 @@ class Game {
     }
 
     const result = {
-      winner: winner.char,
-      board: this.board.matrix,
+      board: this.board.rows,
+      initial_state: initialState,
+      moves: moves,
+      winner: winner.char,    
       score: {}
     }
 
     result.score[this.pig.char] = this.pig.score
     result.score[this.farmer.char] = this.farmer.score
 
+    console.log(result)
     return result
   }
 
